@@ -17,7 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
     private Button addButton,tarikButton;
-    private DatabaseReference myRef;
+    private DatabaseReference myRef,myDompet;
     private EditText txtSaldo,txtTarik;
 
     @Override
@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         myRef = database.getReference("message");
+        myDompet = database.getReference("saldo");
 
         addButton = (Button) findViewById(R.id.BtnSaldo);
         tarikButton = (Button) findViewById(R.id.BtnTarik);
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
                         int tTarik = Integer.parseInt(isi) - Integer.parseInt(tarik);
                         String ttTarik = "" + tTarik;
+                        myDompet.setValue(tarik);
                         myRef.setValue(ttTarik);
                         Toast.makeText(MainActivity.this, tarik, Toast.LENGTH_SHORT).show();
                     }
