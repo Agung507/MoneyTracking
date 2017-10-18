@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         int tTarik = Integer.parseInt(isi) - Integer.parseInt(tarik);
                         String ttTarik = "" + tTarik;
                         myRef.setValue(ttTarik);
-                        Toast.makeText(MainActivity.this, ttTarik, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, tarik, Toast.LENGTH_SHORT).show();
                     }
                 });
             }
